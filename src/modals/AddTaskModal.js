@@ -60,7 +60,7 @@ export default class AddTaskModal extends Component<{}> {
                 placeholder="Nombre de la tarea"
                 onChangeText={ (text) => this.setState({taskText: text}) }/>
                 <DatePicker
-                   style={datePickerStyles.lenght}
+                   style={datePickerStyles.lengtt}
                    date= {this.state.taskDate}
                    mode="date"
                    format= "DD-MM-YYYY"
@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
 });
 
 const datePickerStyles = {
-  lenght:{
+  length:{
     width:300
   },
 dateInput: {
