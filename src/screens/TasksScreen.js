@@ -66,8 +66,8 @@ export default class TasksScreen extends Component<{}> {
     this.setState( tasks );
   }
 
-  addTask(text){
-    const newTask = { title: text, completed: false, id: this.state.tasks.length + 1 };
+  addTask(text, date){
+    const newTask = { title: text, completed: false, id: this.state.tasks.length + 1, date: date };
     this.setState({ tasks: [newTask, ...this.state.tasks] });
     this.closeAddTaskModal();
   }
