@@ -24,7 +24,6 @@ const currentTime = new Date(),
       year = currentTime.getFullYear();
 
 let formatDate = `${date}-0${month}-${year}`;
-console.log(formatDate);
 
 export default class AddTaskModal extends Component<{}> {
 
@@ -38,7 +37,6 @@ export default class AddTaskModal extends Component<{}> {
 
   addTask(){
     if(this.state.taskText !== ''){
-      console.log(this.state.taskDate);
       this.props.addTask(this.state.taskText, this.state.taskDate);
     }else{
       //TODO: show an alert to the user!
@@ -62,26 +60,12 @@ export default class AddTaskModal extends Component<{}> {
                 placeholder="Nombre de la tarea"
                 onChangeText={ (text) => this.setState({taskText: text}) }/>
                 <DatePicker
-                   style={{width: 300}}
+                   style={datePickerStyles.lenght}
                    date= {this.state.taskDate}
                    mode="date"
                    format= "DD-MM-YYYY"
                    showIcon = {false}
-                   customStyles={{
-                   dateInput: {
-                      borderLeftWidth: 0,
-                      borderRightWidth: 0,
-                      borderTopWidth: 0,
-                      borderColor: Colors.primaryTxtOpacity
-                    },
-                    dateText: {
-                      fontFamily:'Avenir-Book',
-                      fontSize:20,
-                      textAlign:'center',
-                      lineHeight:30,
-                      color: Colors.gray
-                    }
-                  }}
+                   customStyles={datePickerStyles}
                    onDateChange={(date) => {this.setState({taskDate: date})}}
                 />
               <TouchableHighlight
@@ -181,14 +165,14 @@ const styles = StyleSheet.create({
 });
 
 const datePickerStyles = {
-  lengthDatePicker:{
-    width:326
+  lenght:{
+    width:300
   },
 dateInput: {
    borderLeftWidth: 0,
    borderRightWidth: 0,
    borderTopWidth: 0,
-   borderColor: Colors.primaryTxtOpacity
+   borderColor: Colors.gray
 
  },
  dateText: {
@@ -197,6 +181,5 @@ dateInput: {
    textAlign:'center',
    lineHeight:30,
    color: Colors.gray
-
  }
 };
