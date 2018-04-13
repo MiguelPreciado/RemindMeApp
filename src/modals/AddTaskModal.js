@@ -4,6 +4,7 @@
  */
 
 import React, { Component } from 'react';
+import DatePicker from 'react-native-datepicker';
 import {
   StyleSheet,
   Text,
@@ -17,20 +18,26 @@ import {
 
 import Colors from './../theme/colors';
 
-const screen = Dimensions.get('window');
+const currentTime = new Date(),
+      month = currentTime.getMonth() + 1,
+      date = currentTime.getDate(),
+      year = currentTime.getFullYear();
+
+let formatDate = `${date}-0${month}-${year}`;
 
 export default class AddTaskModal extends Component<{}> {
 
   constructor(props){
     super(props);
     this.state = {
-      taskText: ''
+      taskText: '',
+      taskDate: formatDate
     }
   }
 
   addTask(){
     if(this.state.taskText !== ''){
-      this.props.addTask(this.state.taskText);
+      this.props.addTask(this.state.taskText, this.state.taskDate);
     }else{
       //TODO: show an alert to the user!
     }
@@ -52,6 +59,15 @@ export default class AddTaskModal extends Component<{}> {
                 style={styles.inputText}
                 placeholder="Nombre de la tarea"
                 onChangeText={ (text) => this.setState({taskText: text}) }/>
+                <DatePicker
+                   style={datePickerStyles.length}
+                   date= {this.state.taskDate}
+                   mode="date"
+                   format= "DD-MM-YYYY"
+                   showIcon = {false}
+                   customStyles={datePickerStyles}
+                   onDateChange={(date) => {this.setState({taskDate: date})}}
+                />
               <TouchableHighlight
                 style={styles.addButton}
                 underlayColor={Colors.touchableHover}
@@ -147,3 +163,23 @@ const styles = StyleSheet.create({
     color: Colors.primaryColorDarker
   }
 });
+
+const datePickerStyles = {
+  length:{
+    width:300
+  },
+dateInput: {
+   borderLeftWidth: 0,
+   borderRightWidth: 0,
+   borderTopWidth: 0,
+   borderColor: Colors.gray
+
+ },
+ dateText: {
+   fontFamily:'Avenir-Book',
+   fontSize:20,
+   textAlign:'center',
+   lineHeight:30,
+   color: Colors.gray
+ }
+};
