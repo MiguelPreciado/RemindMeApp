@@ -20,6 +20,10 @@ export default class HomeScreen extends Component<{}> {
     this.props.navigation.navigate('Tasks');
   }
 
+  goToCategoriesScreen(){
+    this.props.navigation.navigate('Categories');
+  }
+
   render() {
 
     return (
@@ -33,7 +37,7 @@ export default class HomeScreen extends Component<{}> {
         <TouchableHighlight
           style={styles.homeButton}
           underlayColor={Colors.touchableHover}
-          onPress={this.goToTaskScreen.bind(this)}>
+          onPress={this.goToCategoriesScreen.bind(this)}>
           <Text style={styles.homeButtonText}>COMENZAR</Text>
         </TouchableHighlight>
         <Image source={require('./../images/avatars.png')} />
