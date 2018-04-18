@@ -40,7 +40,7 @@ export default class HomeScreen extends Component<{}> {
           onPress={this.goToCategoriesScreen.bind(this)}>
           <Text style={styles.homeButtonText}>COMENZAR</Text>
         </TouchableHighlight>
-        <Image source={require('./../images/avatars.png')} />
+        <Image source={require('./../images/avatars.png')}/>
       </View>
     );
   }
