@@ -16,16 +16,11 @@ import Colors from './../theme/colors';
 
 export default class HomeScreen extends Component<{}> {
 
-  goToTaskScreen(){
-    this.props.navigation.navigate('Tasks');
-  }
-
   goToCategoriesScreen(){
     this.props.navigation.navigate('Categories');
   }
 
   render() {
-
     return (
       <View style={styles.container}>
         <StatusBar

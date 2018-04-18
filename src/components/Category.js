@@ -12,7 +12,7 @@ import Typografy from './../theme/typografy';
 
 
 const screen = Dimensions.get('window').width;
-export default class Categories extends Component<{}> {
+export default class Category extends Component<{}> {
 
   constructor(props){
     super(props);

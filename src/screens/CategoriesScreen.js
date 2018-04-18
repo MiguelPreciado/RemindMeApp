@@ -4,7 +4,6 @@ Hecho por: Dámaso Valdés Rosales
 Ticket: LINCE-002
 */
 
-
 import React, { Component } from 'react';
 import {
   StyleSheet,
@@ -16,24 +15,23 @@ import {
   ScrollView
 } from 'react-native';
 import Colors from './../theme/colors';
-import Categories from './../components/Categories';
+import Category from './../components/Category';
 
 export default class CategoriesScreen extends Component<{}> {
 
   constructor(props){
     super(props);
-    let work = 'TRABAJO', school = 'ESCUELA', home = 'HOGAR', friends = 'AMIGOS';
     this.state={
-      categories:[{id:1,title:work,image:require('./../images/category-work.png')},
-                  {id:2,title:school,image:require('./../images/category-school.png')},
-                  {id:3,title:home,image:require('./../images/category-home.png')},
-                  {id:4,title:friends,image:require('./../images/category-friends.png')}]
+      categories:[{id:1,title:'TRABAJO',image:require('./../images/category-work.png')},
+                  {id:2,title:'ESCUELA',image:require('./../images/category-school.png')},
+                  {id:3,title:'HOGAR',image:require('./../images/category-home.png')},
+                  {id:4,title:'AMIGOS',image:require('./../images/category-friends.png')}]
      }
   }
 
   showCategories(categories){
           return categories.map( category => {
-            return (<Categories
+            return (<Category
                     key={category.id}
                     id={category.id}
                     title={category.title}
