@@ -14,6 +14,8 @@ import {
   View,
   TextInput,
   Platform,
+  ImageBackground,
+  ScrollView
 } from 'react-native';
 
 import Colors from './../theme/colors';
@@ -49,12 +51,11 @@ export default class AddTaskModal extends Component<{}> {
       <View style={styles.modalContainer}>
         <View style={styles.wrapperContainer}>
           <View style={styles.headerContainer}>
-            <Image
-              style={styles.remindMeLogo}
-              source={require('./../images/remindMe-logo.png')}/>
+            <ImageBackground style={styles.backgroundImage} source={require('./../images/pattern.png')}>
+              <Text style={styles.addTaskText}>AGREGAR TAREA</Text>
+            </ImageBackground>
           </View>
           <View style={styles.bodyContainer}>
-              <Text style={styles.addTaskText}>Agregar Tarea</Text>
               <TextInput
                 style={styles.inputText}
                 placeholder="Nombre de la tarea"
@@ -99,27 +100,25 @@ const styles = StyleSheet.create({
   },
   wrapperContainer: {
     backgroundColor: 'white',
-    height: 567
+    height: 500
   },
   headerContainer:{
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    height: 100,
     backgroundColor: Colors.primaryColorDarker
   },
-  remindMeLogo:{
-    width: 285,
-  },
   bodyContainer: {
-    flex: 1,
-    height: 315,
+    flex: 2,
+    height: 400,
     justifyContent: 'space-around',
     alignItems: 'center',
     padding: 20
   },
   addTaskText: {
     fontFamily: 'Avenir',
-    fontSize: 16,
+    fontSize: 30,
+    color: 'white',
     textAlign: 'center'
   },
   inputText:{
@@ -161,6 +160,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 17,
     color: Colors.primaryColorDarker
+  },
+  backgroundImage: {
+    flex: 1,
+    height: 100,
+    justifyContent: 'center'
   }
 });
 
