@@ -10,12 +10,14 @@ import {
 } from 'react-navigation';
 import HomeScreen from './screens/HomeScreen';
 import TasksScreen from './screens/TasksScreen';
+import CategoriesScreen from './screens/CategoriesScreen';
 
 
 export default App = StackNavigator(
   {
     Home: { screen: HomeScreen },
-    Tasks: { screen: TasksScreen }
+    Tasks: { screen: TasksScreen },
+    Categories: { screen: CategoriesScreen}
   },
   {
     headerMode: 'none'
