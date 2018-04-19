@@ -29,13 +29,18 @@ export default class CategoriesScreen extends Component<{}> {
      }
   }
 
+  goToTaskScreen(selectedCategory){
+    this.props.navigation.navigate('Tasks', {category: selectedCategory});
+  }
+
   showCategories(categories){
           return categories.map( category => {
             return (<Category
                     key={category.id}
                     id={category.id}
                     title={category.title}
-                    image={category.image}/>)
+                    image={category.image}
+                    task={this.goToTaskScreen.bind(this)}/>)
         });
     }
 

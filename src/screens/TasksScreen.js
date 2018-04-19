@@ -21,6 +21,9 @@ import AddTaskModal from './../modals/AddTaskModal';
 import Task from './../components/Task';
 import Colors from './../theme/colors';
 import WorkTasks from './../staticData/workTasks';
+import FriendsTasks from './../staticData/friendsTasks';
+import HomeTasks from './../staticData/homeTasks';
+import SchoolTasks from './../staticData/schoolTasks';
 
 
 const screen = Dimensions.get('window');
@@ -31,14 +34,30 @@ export default class TasksScreen extends Component<{}> {
     super(props);
     this.state = {
       tasks: [],
-      showAddTaskModal: false
+      showAddTaskModal: false,
+      category: this.props.navigation.state.params.category
     }
   }
 
   componentWillMount(){
     //Get categories parameter
     //Set state based on curent category
-    this.setState({ tasks: WorkTasks });
+    switch (this.state.category) {
+      case 'TRABAJO':
+        this.setState({tasks: WorkTasks});
+        break;
+      case 'ESCUELA':
+        this.setState({tasks: SchoolTasks});
+        break;
+      case 'HOGAR':
+        this.setState({tasks: HomeTasks});
+        break;
+      case 'AMIGOS':
+        this.setState({tasks: FriendsTasks});
+        break;
+      default:
+        return null;
+    }
   }
 
   openAddTaskModal(){
