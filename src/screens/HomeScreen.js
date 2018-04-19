@@ -10,7 +10,8 @@ import {
   TouchableHighlight,
   Image,
   View,
-  StatusBar
+  StatusBar,
+  ImageBackground
 } from 'react-native';
 import Colors from './../theme/colors';
 
@@ -24,6 +25,7 @@ export default class HomeScreen extends Component<{}> {
 
     return (
       <View style={styles.container}>
+      <ImageBackground style={styles.backgroundImage} source={require('./../images/pattern.png')}>
         <StatusBar
           barStyle="light-content"
        />
@@ -36,8 +38,11 @@ export default class HomeScreen extends Component<{}> {
           onPress={this.goToTaskScreen.bind(this)}>
           <Text style={styles.homeButtonText}>COMENZAR</Text>
         </TouchableHighlight>
-        <Image source={require('./../images/avatars.png')} />
+
+        <Image style = {styles.monitos}source={require('./../images/avatars.png')} />
+</ImageBackground>
       </View>
+
     );
   }
 }
@@ -53,6 +58,11 @@ const styles = StyleSheet.create({
   remindMeLogo:{
     marginTop: 80
   },
+  backgroundImage:{
+    flex: 1,
+
+    alignItems: 'center'
+  },
   homeButton: {
       width: 325,
       height: 55,
@@ -60,12 +70,17 @@ const styles = StyleSheet.create({
       borderRadius: 27,
       borderStyle: 'solid',
       borderWidth: 2,
-      borderColor: '#ffffff'
+      borderColor: '#ffffff',
+      backgroundColor: Colors.primaryColorDarker,
+      marginTop: 80
   },
   homeButtonText: {
     fontFamily: 'Avenir',
     textAlign: 'center',
     fontSize: 17,
     color: 'white'
+  },
+  monitos: {
+    marginTop: 73
   }
 });
