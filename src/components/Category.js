@@ -22,7 +22,7 @@ export default class Category extends Component<{}> {
     const {id,title,image} = this.props;
     return (
         <TouchableHighlight
-          onPress = {() => {this.props.task(title)}}>
+          onPress = {() => {this.props.goToTaskScreen(title)}}>
           <View style={styles.container}>
             <Image
               style={styles.TaskIcon}

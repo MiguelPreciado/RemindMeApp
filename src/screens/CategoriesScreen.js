@@ -40,7 +40,7 @@ export default class CategoriesScreen extends Component<{}> {
                     id={category.id}
                     title={category.title}
                     image={category.image}
-                    task={this.goToTaskScreen.bind(this)}/>)
+                    goToTaskScreen={this.goToTaskScreen.bind(this)}/>)
         });
     }
 

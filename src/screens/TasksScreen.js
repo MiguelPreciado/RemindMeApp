@@ -28,36 +28,29 @@ import SchoolTasks from './../staticData/schoolTasks';
 
 const screen = Dimensions.get('window');
 
+
+
+const categories = {
+  TRABAJO: WorkTasks,
+  ESCUELA: SchoolTasks,
+  HOGAR: HomeTasks,
+  AMIGOS: FriendsTasks
+}
+
 export default class TasksScreen extends Component<{}> {
 
   constructor(props){
     super(props);
     this.state = {
       tasks: [],
-      showAddTaskModal: false,
-      category: this.props.navigation.state.params.category
+      showAddTaskModal: false
     }
   }
 
   componentWillMount(){
     //Get categories parameter
     //Set state based on curent category
-    switch (this.state.category) {
-      case 'TRABAJO':
-        this.setState({tasks: WorkTasks});
-        break;
-      case 'ESCUELA':
-        this.setState({tasks: SchoolTasks});
-        break;
-      case 'HOGAR':
-        this.setState({tasks: HomeTasks});
-        break;
-      case 'AMIGOS':
-        this.setState({tasks: FriendsTasks});
-        break;
-      default:
-        return null;
-    }
+    this.setState({tasks: categories[this.props.navigation.state.params.category]});
   }
 
   openAddTaskModal(){
@@ -104,7 +97,6 @@ export default class TasksScreen extends Component<{}> {
   }
 
   render() {
-
     return (
       <View style={styles.container}>
         <TaskHeader taksToBeCompleted={ this.calcultateToBeCompletedTasks(this.state.tasks) }/>
