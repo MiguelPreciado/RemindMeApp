@@ -21,9 +21,21 @@ import AddTaskModal from './../modals/AddTaskModal';
 import Task from './../components/Task';
 import Colors from './../theme/colors';
 import WorkTasks from './../staticData/workTasks';
+import FriendsTasks from './../staticData/friendsTasks';
+import HomeTasks from './../staticData/homeTasks';
+import SchoolTasks from './../staticData/schoolTasks';
 
 
 const screen = Dimensions.get('window');
+
+
+
+const categories = {
+  TRABAJO: WorkTasks,
+  ESCUELA: SchoolTasks,
+  HOGAR: HomeTasks,
+  AMIGOS: FriendsTasks
+}
 
 export default class TasksScreen extends Component<{}> {
 
@@ -38,7 +50,7 @@ export default class TasksScreen extends Component<{}> {
   componentWillMount(){
     //Get categories parameter
     //Set state based on curent category
-    this.setState({ tasks: WorkTasks });
+    this.setState({tasks: categories[this.props.navigation.state.params.category]});
   }
 
   openAddTaskModal(){
@@ -85,7 +97,6 @@ export default class TasksScreen extends Component<{}> {
   }
 
   render() {
-
     return (
       <View style={styles.container}>
         <TaskHeader taksToBeCompleted={ this.calcultateToBeCompletedTasks(this.state.tasks) }/>

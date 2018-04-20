@@ -18,14 +18,11 @@ export default class Category extends Component<{}> {
     super(props);
   }
 
-  goToTaskScreen(){
-    this.props.navigation.navigate('Tasks');
-  }
-
   render() {
     const {id,title,image} = this.props;
     return (
-        <TouchableHighlight>
+        <TouchableHighlight
+          onPress = {() => {this.props.goToTaskScreen(title)}}>
           <View style={styles.container}>
             <Image
               style={styles.TaskIcon}
