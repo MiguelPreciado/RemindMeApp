@@ -16,8 +16,9 @@ import {
 import Colors from './../theme/colors';
 
 export default class HomeScreen extends Component<{}> {
-  goToTaskScreen(){
-    this.props.navigation.navigate('Tasks');
+
+  goToCategoriesScreen(){
+    this.props.navigation.navigate('Categories');
   }
 
   render() {
@@ -33,7 +34,7 @@ export default class HomeScreen extends Component<{}> {
         <TouchableHighlight
           style={styles.homeButton}
           underlayColor={Colors.touchableHover}
-          onPress={this.goToTaskScreen.bind(this)}>
+          onPress={this.goToCategoriesScreen.bind(this)}>
           <Text style={styles.homeButtonText}>COMENZAR</Text>
         </TouchableHighlight>
         <Image style = {styles.avatars}source={require('./../images/avatars.png')} />
