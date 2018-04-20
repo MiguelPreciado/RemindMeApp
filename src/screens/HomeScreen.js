@@ -16,13 +16,11 @@ import {
 import Colors from './../theme/colors';
 
 export default class HomeScreen extends Component<{}> {
-
   goToTaskScreen(){
     this.props.navigation.navigate('Tasks');
   }
 
   render() {
-
     return (
       <View style={styles.container}>
       <ImageBackground style={styles.backgroundImage} source={require('./../images/pattern.png')}>
@@ -38,15 +36,12 @@ export default class HomeScreen extends Component<{}> {
           onPress={this.goToTaskScreen.bind(this)}>
           <Text style={styles.homeButtonText}>COMENZAR</Text>
         </TouchableHighlight>
-
-        <Image style = {styles.monitos}source={require('./../images/avatars.png')} />
+        <Image style = {styles.avatars}source={require('./../images/avatars.png')} />
 </ImageBackground>
       </View>
-
     );
   }
 }
-
 // TODO: Create Theme styles (Buttons, Global Components, etc) so it can be imported on each component as required.
 const styles = StyleSheet.create({
   container: {
@@ -60,7 +55,6 @@ const styles = StyleSheet.create({
   },
   backgroundImage:{
     flex: 1,
-
     alignItems: 'center'
   },
   homeButton: {
@@ -80,7 +74,7 @@ const styles = StyleSheet.create({
     fontSize: 17,
     color: 'white'
   },
-  monitos: {
+  avatars: {
     marginTop: 73
   }
 });
