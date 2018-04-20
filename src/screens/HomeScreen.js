@@ -17,12 +17,11 @@ import Colors from './../theme/colors';
 
 export default class HomeScreen extends Component<{}> {
 
-  goToTaskScreen(){
-    this.props.navigation.navigate('Tasks');
+  goToCategoriesScreen(){
+    this.props.navigation.navigate('Categories');
   }
 
   render() {
-
     return (
       <View style={styles.container}>
       <ImageBackground style={styles.backgroundImage} source={require('./../images/pattern.png')}>
@@ -35,12 +34,11 @@ export default class HomeScreen extends Component<{}> {
         <TouchableHighlight
           style={styles.homeButton}
           underlayColor={Colors.touchableHover}
-          onPress={this.goToTaskScreen.bind(this)}>
+          onPress={this.goToCategoriesScreen.bind(this)}>
           <Text style={styles.homeButtonText}>COMENZAR</Text>
         </TouchableHighlight>
-
         <Image style = {styles.monitos}source={require('./../images/avatars.png')} />
-</ImageBackground>
+        </ImageBackground>
       </View>
 
     );
