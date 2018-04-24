@@ -25,7 +25,7 @@ const currentTime = new Date(),
       date = currentTime.getDate(),
       year = currentTime.getFullYear();
 
-let formatDate = `${date}-0${month}-${year}`;
+let formatDate = `${year}-0${month}-${date}`;
 
 export default class AddTaskModal extends Component<{}> {
 
