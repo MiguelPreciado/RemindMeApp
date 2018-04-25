@@ -33,7 +33,7 @@ export default class TaskHeader extends Component<{}> {
   }
 
   render() {
-    const { taksToBeCompleted } = this.props.taksToBeCompleted;
+    const { taksToBeCompleted } = this.props;
     const  currentCat  = this.props.currentCategory;
 
     return (
@@ -51,7 +51,7 @@ export default class TaskHeader extends Component<{}> {
             </TouchableHighlight>
           }
           <Text style={styles.title}>{currentCat}</Text>
-          <Text style={styles.todosText}>{this.props.taksToBeCompleted} Pendientes</Text>
+          <Text style={styles.todosText}>{taksToBeCompleted} Pendientes</Text>
           <Text style={styles.dateText}>{this.getFormatedDate()}</Text>
         </ImageBackground>
       </View>
