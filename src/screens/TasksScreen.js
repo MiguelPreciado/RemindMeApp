@@ -28,8 +28,6 @@ import SchoolTasks from './../staticData/schoolTasks';
 
 const screen = Dimensions.get('window');
 
-
-
 const categories = {
   TRABAJO: WorkTasks,
   ESCUELA: SchoolTasks,
@@ -91,15 +89,25 @@ export default class TasksScreen extends Component<{}> {
                 id={task.id}
                 title={task.title}
                 completed={task.completed}
+                date={task.date}
                 toggleTask={this.toggleTask.bind(this)}/>)
     });
-
   }
+
+  returnToCategories(){
+    this.props.navigation.goBack();
+}
 
   render() {
     return (
       <View style={styles.container}>
-        <TaskHeader taksToBeCompleted={ this.calcultateToBeCompletedTasks(this.state.tasks) }/>
+        <View style={styles.tasksHeader}>
+          <TaskHeader
+            returnToCategories={this.returnToCategories.bind(this)}
+            currentCategory={this.props.navigation.state.params.category}
+            taksToBeCompleted={ this.calcultateToBeCompletedTasks(this.state.tasks) }/>
+
+        </View>
         <ScrollView style={styles.tasksContainer}>
           {this.renderTasks(this.state.tasks)}
         </ScrollView>
@@ -130,11 +138,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: Colors.white
+  },
+  tasksHeader: {
+    flex: 0,
+    height: 200,
+    width: screen.width
   },
   tasksContainer: {
     flex: 1,
-    width: screen.width
+    width: screen.width,
+    height: 200
   },
   addTaskButton: {
     flex: 1,
